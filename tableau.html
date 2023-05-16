@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>table en js</title>
+</head>
+<body>
+    <form method="post" action="">
+        <input type="button" value="generate_table()" onclick="generateTable()">
+    </form>
+<H1>Tableau d'utilisateurs</H1>
+
+    <table id="table-user">
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>  
+    function generateTable(){  
+            
+            let user = [
+                    {nom: "Dioum", prenom: "Cheikh", email: "dioum95@gmail.com", password: 1092830},
+                    {nom: "Diop", prenom: "Moustapha", email: "diop90@gmail.com", password: 1102850},
+                    {nom: "Fall", prenom: "Sophie", email: "fall91@gmail.com", password: 1112840},
+                    {nom: "Seck", prenom: "Aida", email: "seck92@gmail.com", password: 1122820},
+                    {nom: "Amar", prenom: "Nafi", email: "amar93@gmail.com", password: 1132810},
+                ];
+
+            // creation d'un élément <table> et un élélment <tbody>
+                function generateTableHead(table, data) {
+                    let thead = table.createTHead();
+                    let row = thead.insertRow();
+                    for (let key of data) {
+                        let th = document.createElement("th");
+                        let text = document.createTextNode(key);
+                        th.appendChild(text);
+                        row.appendChild(th);
+                    }
+                    }
+
+                    function generateTable(table, data) {
+                    for (let element of data) {
+                        let row = table.insertRow();
+                        for (key in element) {
+                        let cell = row.insertCell();
+                        let text = document.createTextNode(element[key]);
+                        cell.appendChild(text);
+                        }
+                    }
+                    }
+                    console.log(user);
+                    let password = document.createTextNode(user.password);
+                    let table = document.querySelector("table");
+                    let data = Object.keys(user[0]);
+                    generateTableHead(table, data);
+                    generateTable(table, user); 
+    }    
+    </script>
+</body>
+</html>
