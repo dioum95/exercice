@@ -50,11 +50,17 @@
                     let text = document.createTextNode(element[key]);
                     cell.appendChild(text);
                     }
-                    }
-                    
-                    
+                    }  
                 }
-                   
+                 
+                let password = user.map(user => user.password);
+                for (let i = user.length -1; i >= 0; i--){
+                    if(user[i].password = ".........."){
+                        
+                    }
+                    console.log(user);
+                }
+        
             console.log(user);
 
             let= table = document.querySelector("table");
